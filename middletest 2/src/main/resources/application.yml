@@ -1,0 +1,45 @@
+
+spring:
+  application:
+    name: middletest
+
+  datasource:
+    url: jdbc:postgresql://aws-0-ap-northeast-2.pooler.supabase.com/postgres
+    username: postgres.zkyuurziklhnxwoejdkm
+    password: middletest123!@#$%!@#$
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 300000
+      max-lifetime: 1200000
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        jdbc:
+          batch_size: 30
+        order_inserts: true
+        order_updates: true
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+  cloud:
+    gcp:
+      project-id: gyopool-433705
+      credentials:
+        location: file:credentials.json
+      storage:
+        enabled: true
+
+
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
